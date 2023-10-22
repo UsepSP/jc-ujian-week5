@@ -1,0 +1,14 @@
+package com.juaracoding.driver.strategies;
+
+public class DriverStrategyImplementer {
+
+    public static DriverStrategy chooseStrategy (String strategy){
+        switch (strategy){
+            case "chrome":
+                return new Chrome();
+            default:
+                return null;
+        }
+    }
+
+}
