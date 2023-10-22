@@ -1,6 +1,7 @@
 package com.juaracoding.page;
 
 import com.juaracoding.driver.DriverSingleton;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,8 +16,6 @@ public class LoginPage {
     }
 
     //Locator Page Factory
-    @FindBy(className = "woocommerce-store-notice__dismiss-link")
-    private WebElement notice;
     @FindBy(xpath = "//a[normalize-space()='My Account']")
     private WebElement myAccount;
     @FindBy(xpath = "//input[@id='username']")
@@ -27,7 +26,6 @@ public class LoginPage {
     private WebElement btnLogin;
 
     //add product
-    //menu
     @FindBy(xpath = "//span[contains(text(),'ToolsQA Demo Site')]")
     private WebElement menu;
     @FindBy(xpath = "//a[contains(text(),'playboy x missguided plus size grey lips print fro')]")
@@ -40,6 +38,12 @@ public class LoginPage {
     //txtDashboardLogin
     @FindBy(xpath = "//h1[@class='page-title']")
     private WebElement txtDashboard;
+
+    @FindBy (xpath = "//li[@class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout']//a[contains(text(),'Log out')]")
+    private WebElement logout;
+
+    @FindBy (xpath = "//strong[normalize-space()='Error:']")
+    private WebElement passNull;
 
     public void login() {
         username.sendKeys("usep");
@@ -62,9 +66,7 @@ public class LoginPage {
         size.click();
 
     }
-    public void clickNotice(){
-        this.notice.click();
-    }
+
      public void clickMyAccount(){
         this.myAccount.click();
 
@@ -84,6 +86,26 @@ public class LoginPage {
     public String getTxtDashboard() {
         return txtDashboard.getText();
     }
+
+    public void btnLogout(){
+        this.logout.click();
+    }
+
+    public String txtPassNull(){
+        return passNull.getText();
+    }
+
+    public void clearUsername(){
+        username.sendKeys(Keys.CONTROL+"a");
+        username.sendKeys(Keys.DELETE);
+    }
+
+    public void clearPassword(){
+        password.sendKeys(Keys.CONTROL+"a");
+        password.sendKeys(Keys.DELETE);
+    }
+
+
 
 
 }

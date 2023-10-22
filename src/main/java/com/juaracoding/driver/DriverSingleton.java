@@ -30,7 +30,12 @@ public class DriverSingleton {
         return instance;
     }
 
-    public static void dismiss() {
+    public static void scroll(){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollBy(0,1000)","");
+    }
+
+    public static void notice() {
         driver.switchTo().alert().dismiss();
     }
 

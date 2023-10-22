@@ -7,10 +7,13 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_scouse.An;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class TestLogin {
 
@@ -26,20 +29,19 @@ public class TestLogin {
 
     @AfterAll
     public static void finish(){
-    DriverSingleton.delay(3);
     DriverSingleton.closeObjectInstance();
     }
 
     @Given("User enter url web shop demo")
     public void user_enter_url_web_shop_demo(){
     driver.get(Constant.URL);
-    JavascriptExecutor js = (JavascriptExecutor)driver;
-    js.executeScript("window.scrollBy(0,1000)","");
     }
 
 
     @When("User click my account")
     public void user_click_my_account(){
+//        DriverSingleton.notice();
+        DriverSingleton.scroll();
         loginPage.clickMyAccount();
     }
 
@@ -61,6 +63,30 @@ public class TestLogin {
     public void user_get_text_tittle_page_dashboard(){
         Assert.assertEquals(loginPage.getTxtDashboard(),"MY ACCOUNT");
     }
+
+
+    //Invalid login (password null)
+    @Given("User logout")
+    public void user_logout(){
+        loginPage.btnLogout();
+    }
+    @Then("User get text tittle error")
+    public void user_get_text_tittle_error(){
+        Assert.assertEquals(loginPage.txtPassNull(),"Error:");
+    }
+
+    @Given("User delete username")
+    public void user_delete_username(){
+        loginPage.clearUsername();
+    }
+
+    @And("User delete password")
+    public void user_delete_password(){
+        loginPage.clearUsername();
+    }
+
+
+
 
 
 
