@@ -22,7 +22,7 @@ public class TestLogin {
 
     @BeforeAll
     public static void setUp(){
-        DriverSingleton.getInstance(Constant.CHROME);
+        DriverSingleton.getInstance(Constant.Edge);
         driver = DriverSingleton.getDriver();
         loginPage = new LoginPage();
     }

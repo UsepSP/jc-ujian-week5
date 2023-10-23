@@ -26,14 +26,7 @@ public class LoginPage {
     private WebElement btnLogin;
 
     //add product
-    @FindBy(xpath = "//span[contains(text(),'ToolsQA Demo Site')]")
-    private WebElement menu;
-    @FindBy(xpath = "//a[contains(text(),'playboy x missguided plus size grey lips print fro')]")
-    private WebElement pilih;
-    @FindBy(xpath = "//select[@id='pa_color']")
-    private WebElement color;
-    @FindBy(xpath = "//select[@id='pa_size']")
-    private WebElement size;
+
 
     //txtDashboardLogin
     @FindBy(xpath = "//h1[@class='page-title']")
@@ -45,28 +38,12 @@ public class LoginPage {
     @FindBy (xpath = "//strong[normalize-space()='Error:']")
     private WebElement passNull;
 
-    public void login() {
-        username.sendKeys("usep");
-        password.sendKeys("juaracoding");
-        btnLogin.click();
-    }
 
-
-    // ubah menjadi method parameter
-    public void loginForm(String username, String password) {
+    public void loginForm(String username, String password){
         this.username.sendKeys(username);
         this.password.sendKeys(password);
         btnLogin.click();
     }
-
-    public void addProduct() {
-        menu.click();
-        pilih.click();
-        color.click();
-        size.click();
-
-    }
-
      public void clickMyAccount(){
         this.myAccount.click();
 

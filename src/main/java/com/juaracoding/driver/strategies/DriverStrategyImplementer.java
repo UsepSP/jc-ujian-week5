@@ -6,6 +6,8 @@ public class DriverStrategyImplementer {
         switch (strategy){
             case "chrome":
                 return new Chrome();
+            case "edge":
+                return new MicrosoftEdge();
             default:
                 return null;
         }
