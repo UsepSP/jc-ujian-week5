@@ -4,7 +4,6 @@ import com.juaracoding.driver.strategies.DriverStrategy;
 import com.juaracoding.driver.strategies.DriverStrategyImplementer;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class DriverSingleton {
@@ -35,9 +34,7 @@ public class DriverSingleton {
         js.executeScript("window.scrollBy(0,1000)","");
     }
 
-    public static void notice() {
-        driver.switchTo().alert().dismiss();
-    }
+
 
     public static WebDriver getDriver(){
         return driver;

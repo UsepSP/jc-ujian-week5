@@ -42,7 +42,12 @@ public class AddProduct {
     private WebElement txtCheckoutSuccess;
     @FindBy (xpath = "//div[@class='noo-product-item one noo-product-sm-4 not_featured post-1201 product type-product status-publish has-post-thumbnail product_cat-dress product_cat-midi-dresses product_tag-dress product_tag-midi product_tag-women has-featured first instock shipping-taxable purchasable product-type-variable']//div[@class='owl-item active']//img[@class='product-one-thumb']")
     private WebElement product2;
-
+    @FindBy(id = "pa_size")
+    private WebElement sizeNull;
+    @FindBy(id = "pa_color")
+    private WebElement colorNull;
+    @FindBy(xpath = "//a[@class='reset_variations']")
+    private WebElement btnClearVarian;
     public void addProduct() {
         demoSite.click();
         pilih.click();
@@ -95,6 +100,21 @@ public class AddProduct {
     public void clickProduct2(){
     this.product2.click();
     }
+
+    public void notice() {
+        driver.switchTo().alert().accept();
+    }
+
+    public String getTxtColorNull(){
+        return colorNull.getText();
+    }
+    public String getTxtSizeNull(){
+        return sizeNull.getText();
+    }
+    public void clickBtnClearVarian(){
+        this.btnClearVarian.click();
+    }
+
 
 
 

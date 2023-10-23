@@ -99,6 +99,20 @@ public class TestAddProduct {
         System.out.println(addProduct.getTxtCheckoutSuccess());
     }
 
+    @Then("User accept show modal color null")
+    public void user_accept_show_modal_color_null(){
+    addProduct.notice();
+    }
+    @Then("User accept show modal size null")
+    public void user_accept_show_modal_null(){
+        addProduct.notice();
+    }
+    @Given("User click button clear")
+    public void user_click_button_clear(){
+        addProduct.clickBtnClearVarian();
+    }
+
+
 
 
 
